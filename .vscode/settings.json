@@ -1,0 +1,7 @@
+{
+    "editor.formatOnSave": true,
+    "search.exclude": {
+        "fileicons/**": true,
+        "test/**": true
+    }
+}
