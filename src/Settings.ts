@@ -106,6 +106,7 @@ export default {
 				"hs",
 				"hxml",
 				"hxx",
+				"inl",
 				"jl",
 				"l",
 				"lhs",
@@ -254,6 +255,7 @@ export default {
 			iconPath: "CPP_16x.svg",
 			fileExtensions: [
 				"cpp",
+				"inl",
 				"cxx"
 			],
 			fileNames: []

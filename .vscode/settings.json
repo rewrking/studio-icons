@@ -3,5 +3,8 @@
     "search.exclude": {
         "fileicons/**": true,
         "test/**": true
+    },
+    "files.exclude": {
+        "**/*.ai": true
     }
 }
