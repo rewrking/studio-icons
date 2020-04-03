@@ -6,5 +6,5 @@
     },
     "files.exclude": {
         "**/*.ai": true
-    }
+    },
 }

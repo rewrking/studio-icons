@@ -90,6 +90,8 @@ export default {
 				"cl",
 				"clj",
 				"cmake",
+				"code-snippets",
+				"code-workspace",
 				"d",
 				"di",
 				"el",
@@ -165,184 +167,106 @@ export default {
 				"releases",
 				"yarn.lock"
 			],
-			folderNames: [
-				"properties",
-				"references",
-				"rootFolder",
-				"wwwroot"
-			]
+			folderNames: ["properties", "references", "rootFolder", "wwwroot"]
 		},
 		{
 			iconPath: "AdobeIndesign_16x.svg",
-			fileExtensions: [
-				"indd",
-				"indl",
-				"indt",
-				"inml"
-			]
+			fileExtensions: ["indd", "indl", "indt", "inml"]
 		},
 		{
 			iconPath: "AdobeIllustrator_16x.svg",
-			fileExtensions: [
-				"ai"
-			]
+			fileExtensions: ["ai"]
 		},
 		{
 			iconPath: "AdobePhotoshop_16x.svg",
-			fileExtensions: [
-				"psb",
-				"psd"
-			]
+			fileExtensions: ["psb", "psd"]
 		},
 		{
 			iconPath: "AndroidFile_16x.svg",
 			fileExtensions: [],
-			fileNames: [
-				"androidmanifest.xml"
-			]
+			fileNames: ["androidmanifest.xml"]
 		},
 		{
 			iconPath: "Application_16x.svg",
-			fileExtensions: [
-				"exe"
-			],
+			fileExtensions: ["exe"],
 			fileNames: []
 		},
 		{
 			iconPath: "AudioOn_16x.svg",
-			fileExtensions: [
-				"aac",
-				"mp3",
-				"flac",
-				"m4a",
-				"wma",
-				"aiff"
-			],
+			fileExtensions: ["aac", "mp3", "flac", "m4a", "wma", "aiff"],
 			fileNames: []
 		},
 		{
 			iconPath: "ASPXFile_16x.svg",
-			fileExtensions: [
-				"asp",
-				"aspx"
-			],
+			fileExtensions: ["asp", "aspx"],
 			fileNames: []
 		},
 		{
 			iconPath: "AssemblerSourceFile_16x.svg",
-			fileExtensions: [
-				"asm",
-				"s"
-			],
+			fileExtensions: ["asm", "s"],
 			fileNames: []
 		},
 		{
 			iconPath: "BuildStyle_16x.svg",
-			fileExtensions: [
-				"styl"
-			],
+			fileExtensions: ["styl"],
 			fileNames: []
 		},
 		{
 			iconPath: "CFile_16x_color.svg",
-			fileExtensions: [
-				"c",
-				"cc"
-			],
+			fileExtensions: ["c", "cc"],
 			fileNames: []
 		},
 		{
 			iconPath: "CPP_16x.svg",
-			fileExtensions: [
-				"cpp",
-				"inl",
-				"cxx"
-			],
+			fileExtensions: ["cpp", "inl", "cxx"],
 			fileNames: []
 		},
 		{
 			iconPath: "CPPHeaderFile_16x.svg",
-			fileExtensions: [
-				"h",
-				"hpp"
-			],
+			fileExtensions: ["h", "hpp"],
 			fileNames: []
 		},
 		{
 			iconPath: "CS_16x.svg",
-			fileExtensions: [
-				"cs"
-			],
+			fileExtensions: ["cs"],
 			fileNames: []
 		},
 		{
 			iconPath: "Certificate_16x.svg",
-			fileExtensions: [
-				"cert",
-				"cer",
-				"crt"
-			],
-			fileNames: [
-				"license",
-				"license.md",
-				"license.md.rendered",
-				"license.txt"
-			]
+			fileExtensions: ["cert", "cer", "crt"],
+			fileNames: ["license", "license.md", "license.md.rendered", "license.txt"]
 		},
 		{
 			iconPath: "ConfigurationFile_16x.svg",
-			fileExtensions: [
-				"config",
-				"conf"
-			],
-			fileNames: [
-				".editorconfig"
-			]
+			fileExtensions: ["config", "conf"],
+			fileNames: [".editorconfig"]
 		},
 		{
 			iconPath: "Console_16x.svg",
-			fileExtensions: [
-				"cmd",
-				"sh",
-				"bat",
-				"ps1"
-			],
+			fileExtensions: ["cmd", "sh", "bat", "ps1"],
 			fileNames: []
 		},
 		{
 			iconPath: "CPPApplication_16x.svg",
-			fileExtensions: [
-				"vcxproj"
-			]
+			fileExtensions: ["vcxproj"]
 		},
 		{
 			iconPath: "CPPATLWebService_16x.svg",
 			fileExtensions: [],
-			fileNames: [
-				"dub.sdl"
-			]
+			fileNames: ["dub.sdl"]
 		},
 		{
 			iconPath: "CSApplication_16x.svg",
-			fileExtensions: [
-				"csproj"
-			]
+			fileExtensions: ["csproj"]
 		},
 		{
 			iconPath: "CursorFile_16x.svg",
-			fileExtensions: [
-				"cur"
-			],
+			fileExtensions: ["cur"],
 			fileNames: []
 		},
 		{
 			iconPath: "Database_16x.svg",
-			fileExtensions: [
-				"sql",
-				"mdb",
-				"sqlite",
-				"pdb"
-			],
+			fileExtensions: ["sql", "mdb", "sqlite", "pdb"],
 			fileNames: []
 		},
 		{
@@ -352,37 +276,27 @@ export default {
 		},
 		{
 			iconPath: "Extension_16x.svg",
-			fileExtensions: [
-				"vsix"
-			],
+			fileExtensions: ["vsix"],
 			fileNames: []
 		},
 		{
 			iconPath: "ExtensionManagerManifest_16x.svg",
-			fileExtensions: [
-				"manifest"
-			],
+			fileExtensions: ["manifest"],
 			fileNames: []
 		},
 		{
 			iconPath: "FileGroup_16x.svg",
-			fileExtensions: [
-				"resx"
-			],
+			fileExtensions: ["resx"],
 			fileNames: []
 		},
 		{
 			iconPath: "FS_16x.svg",
-			fileExtensions: [
-				"fs"
-			],
+			fileExtensions: ["fs"],
 			fileNames: []
 		},
 		{
 			iconPath: "FSApplication_16x.svg",
-			fileExtensions: [
-				"fsproj"
-			],
+			fileExtensions: ["fsproj"],
 			fileNames: []
 		},
 		{
@@ -419,27 +333,16 @@ export default {
 		{
 			iconPath: "GitLogo_16x.svg",
 			fileExtensions: [],
-			fileNames: [
-				".gitignore",
-				".gitconfig",
-				".gitattributes",
-				".gitmodules",
-				".gitkeep"
-			]
+			fileNames: [".gitignore", ".gitconfig", ".gitattributes", ".gitmodules", ".gitkeep"]
 		},
 		{
 			iconPath: "HTMLFile_16x.svg",
-			fileExtensions: [
-				"htm",
-				"html"
-			],
+			fileExtensions: ["htm", "html"],
 			fileNames: []
 		},
 		{
 			iconPath: "IconFile_16x.svg",
-			fileExtensions: [
-				"ico"
-			],
+			fileExtensions: ["ico"],
 			fileNames: []
 		},
 		{
@@ -479,130 +382,77 @@ export default {
 		},
 		{
 			iconPath: "ImageMapFile_16x.svg",
-			fileExtensions: [
-				"map"
-			],
+			fileExtensions: ["map"],
 			fileNames: []
 		},
 		{
 			iconPath: "JADEScript_16x.svg",
-			fileExtensions: [
-				"jade"
-			],
+			fileExtensions: ["jade"],
 			fileNames: []
 		},
 		{
 			iconPath: "JARFile_16x.svg",
-			fileExtensions: [
-				"jar"
-			],
+			fileExtensions: ["jar"],
 			fileNames: []
 		},
 		{
 			iconPath: "JavaFile_16x.svg",
-			fileExtensions: [
-				"java",
-				"jsp"
-			],
+			fileExtensions: ["java", "jsp"],
 			fileNames: []
 		},
 		{
 			iconPath: "JSCoffeeScript_16x.svg",
-			fileExtensions: [
-				"coffee"
-			],
+			fileExtensions: ["coffee"],
 			fileNames: []
 		},
 		{
 			iconPath: "JSONScript_16x.svg",
-			fileExtensions: [
-				"json",
-				"graphql"
-			],
-			fileNames: [
-				".jscsrc",
-				".jshintrc",
-				".babelrc"
-			]
+			fileExtensions: ["json", "graphql", "code-snippets", "code-workspace"],
+			fileNames: [".jscsrc", ".jshintrc", ".babelrc"]
 		},
 		{
 			iconPath: "JSScript_16x.svg",
-			fileExtensions: [
-				"js",
-				"ejs",
-				"esx"
-			],
+			fileExtensions: ["js", "ejs", "esx"],
 			fileNames: []
 		},
 		{
 			iconPath: "JSXScript_16x.svg",
-			fileExtensions: [
-				"jsx"
-			],
+			fileExtensions: ["jsx"],
 			fileNames: []
 		},
 		{
 			iconPath: "Key_16x.svg",
-			fileExtensions: [
-				"pub",
-				"key",
-				"pem",
-				"asc"
-			],
+			fileExtensions: ["pub", "key", "pem", "asc"],
 			fileNames: []
 		},
 		{
 			iconPath: "LessStyleSheet_16x.svg",
-			fileExtensions: [
-				"less"
-			],
+			fileExtensions: ["less"],
 			fileNames: []
 		},
 		{
 			iconPath: "Library_16x.svg",
-			fileExtensions: [
-				"lib",
-				"bib"
-			],
+			fileExtensions: ["lib", "bib"],
 			fileNames: []
 		},
 		{
 			iconPath: "Lock_16x.svg",
-			fileExtensions: [
-				"lock"
-			],
+			fileExtensions: ["lock"],
 			fileNames: []
 		},
 		{
 			iconPath: "Mail_16x.svg",
-			fileExtensions: [
-				"ics",
-				"mailmap"
-			],
+			fileExtensions: ["ics", "mailmap"],
 			fileNames: []
 		},
 		{
 			iconPath: "MakeFile_16x.svg",
-			fileExtensions: [
-				"cmake",
-				"make",
-				"mk",
-				"nmake"
-			],
-			fileNames: [
-				"CMakeLists.txt",
-				"cmakelists.txt",
-				"gnumakefile",
-				"mak",
-				"make",
-				"makefile"
-			]
+			fileExtensions: ["cmake", "make", "mk", "nmake"],
+			fileNames: ["CMakeLists.txt", "cmakelists.txt", "gnumakefile", "mak", "make", "makefile"]
 		},
 		{
 			iconPath: "MasterPage_16x.svg",
-			fileExtensions: [
-				"master"
-			],
+			fileExtensions: ["master"],
 			fileNames: []
 		},
 		{
@@ -637,332 +487,201 @@ export default {
 		{
 			iconPath: "NextDocument_16x.svg",
 			fileExtensions: [],
-			fileNames: [
-				"web.debug.config",
-				"web.release.config"
-			]
+			fileNames: ["web.debug.config", "web.release.config"]
 		},
 		{
 			iconPath: "NodeJS_16x.svg",
 			fileExtensions: [],
-			fileNames: [
-				"package.json"
-			]
+			fileNames: ["package.json"]
 		},
 		{
 			iconPath: "OfficeAccess2013Logo_16x.svg",
-			fileExtensions: [
-				"accdb",
-				"accda",
-				"accde"
-			],
+			fileExtensions: ["accdb", "accda", "accde"],
 			fileNames: []
 		},
 		{
 			iconPath: "OfficeExcel2013Logo_16x.svg",
-			fileExtensions: [
-				"xsl",
-				"xsls"
-			],
+			fileExtensions: ["xsl", "xsls"],
 			fileNames: []
 		},
 		{
 			iconPath: "OfficePowerPoint2013Logo_16x.svg",
-			fileExtensions: [
-				"ppt",
-				"pptx"
-			],
+			fileExtensions: ["ppt", "pptx"],
 			fileNames: []
 		},
 		{
 			iconPath: "OfficeProject2013Logo_16x.svg",
-			fileExtensions: [
-				"mpd",
-				"mpp",
-				"mpt"
-			],
+			fileExtensions: ["mpd", "mpp", "mpt"],
 			fileNames: []
 		},
 		{
 			iconPath: "OfficeVisio2013Logo_16x.svg",
-			fileExtensions: [
-				"vsd",
-				"vsdx"
-			],
+			fileExtensions: ["vsd", "vsdx"],
 			fileNames: []
 		},
 		{
 			iconPath: "OfficeWord2013Logo_16x.svg",
-			fileExtensions: [
-				"doc",
-				"docx"
-			],
+			fileExtensions: ["doc", "docx"],
 			fileNames: []
 		},
 		{
 			iconPath: "Parameter_16x.svg",
-			fileExtensions: [
-				"cshtml"
-			],
+			fileExtensions: ["cshtml"],
 			fileNames: []
 		},
 		{
 			iconPath: "PDFFile_16x.svg",
-			fileExtensions: [
-				"pdf"
-			],
+			fileExtensions: ["pdf"],
 			fileNames: []
 		},
 		{
 			iconPath: "PHPFile_16x.svg",
-			fileExtensions: [
-				"php"
-			],
+			fileExtensions: ["php"],
 			fileNames: []
 		},
 		{
 			iconPath: "Property_16x.svg",
-			fileExtensions: [
-				"properties",
-				"prop",
-				"props"
-			],
+			fileExtensions: ["properties", "prop", "props"],
 			fileNames: [],
-			folderNames: [
-				"properties"
-			],
-			folderNamesExpanded: [
-				"properties"
-			]
+			folderNames: ["properties"],
+			folderNamesExpanded: ["properties"]
 		},
 		{
 			iconPath: "PugScript_16x.svg",
-			fileExtensions: [
-				"pug"
-			],
+			fileExtensions: ["pug"],
 			fileNames: []
 		},
 		{
 			iconPath: "PY_16x.svg",
-			fileExtensions: [
-				"py"
-			],
+			fileExtensions: ["py"],
 			fileNames: []
 		},
 		{
 			iconPath: "Reference_16x.svg",
 			fileExtensions: [],
 			fileNames: [],
-			folderNames: [
-				"references"
-			],
-			folderNamesExpanded: [
-				"references"
-			]
+			folderNames: ["references"],
+			folderNamesExpanded: ["references"]
 		},
 		{
 			iconPath: "RB_FileSENode_16x.svg",
-			fileExtensions: [
-				"rb"
-			],
+			fileExtensions: ["rb"],
 			fileNames: []
 		},
 		{
 			iconPath: "RustFile_16x.svg",
-			fileExtensions: [
-				"rs",
-				"rlib"
-			],
+			fileExtensions: ["rs", "rlib"],
 			fileNames: []
 		},
 		{
 			iconPath: "SassStyleSheet_16x.svg",
-			fileExtensions: [
-				"sass",
-				"scss"
-			],
+			fileExtensions: ["sass", "scss"],
 			fileNames: []
 		},
 		{
 			iconPath: "Settings_16x.svg",
-			fileExtensions: [
-				"settings"
-			]
+			fileExtensions: ["settings"]
 		},
 		{
 			iconPath: "SettingsFile_16x.svg",
-			fileExtensions: [
-				"asax",
-				"ini",
-				"dlc",
-				"dll",
-				"toml"
-			],
-			fileNames: [
-				".jshintignore",
-				"procfile",
-				".buildignore"
-			]
+			fileExtensions: ["asax", "ini", "dlc", "dll", "toml"],
+			fileNames: [".jshintignore", "procfile", ".buildignore"]
 		},
 		{
 			iconPath: "SitemapFile_16x.svg",
-			fileExtensions: [
-				"sitemap"
-			]
+			fileExtensions: ["sitemap"]
 		},
 		{
 			iconPath: "SpecialFolder_16x.svg",
-			folderNames: [
-				"rootFolder"
-			]
+			folderNames: ["rootFolder"]
 		},
 		{
 			iconPath: "SpecialFolderOpen_16x.svg",
-			folderNamesExpanded: [
-				"rootFolder"
-			]
+			folderNamesExpanded: ["rootFolder"]
 		},
 		{
 			iconPath: "StyleSheet_16x.svg",
-			fileExtensions: [
-				"css"
-			],
+			fileExtensions: ["css"],
 			fileNames: []
 		},
 		{
 			iconPath: "TS_FileSENode_16x.svg",
-			fileExtensions: [
-				"ts",
-				"tsx",
-				"d.ts"
-			],
-			fileNames: [
-				"tsconfig.json",
-				"tslint.json"
-			]
+			fileExtensions: ["ts", "tsx", "d.ts"],
+			fileNames: ["tsconfig.json", "tslint.json"]
 		},
 		{
 			iconPath: "Table_16x.svg",
-			fileExtensions: [
-				"xlsx",
-				"xls",
-				"csv"
-			],
+			fileExtensions: ["xlsx", "xls", "csv"],
 			fileNames: []
 		},
 		{
 			iconPath: "Text_16x.svg",
-			fileExtensions: [
-				"txt",
-				"rtf"
-			],
+			fileExtensions: ["txt", "rtf"],
 			fileNames: []
 		},
 		{
 			iconPath: "TextFile_16x.svg",
-			fileExtensions: [
-				"md",
-				"md.rendered"
-			],
+			fileExtensions: ["md", "md.rendered"],
 			fileNames: []
 		},
 		{
 			iconPath: "VBApplication_16x.svg",
-			fileExtensions: [
-				"vbproj"
-			]
+			fileExtensions: ["vbproj"]
 		},
 		{
 			iconPath: "VirtualMachine_16x.svg",
-			fileExtensions: [
-				"vdi",
-				"vbox",
-				"vbox-prev"
-			],
+			fileExtensions: ["vdi", "vbox", "vbox-prev"],
 			fileNames: []
 		},
 		{
 			iconPath: "VisualStudioSettingFile_16x.svg",
-			fileExtensions: [
-				"vscodeignore",
-				"suo",
-				"sln"
-			],
+			fileExtensions: ["vscodeignore", "suo", "sln"],
 			fileNames: []
 		},
 		{
 			iconPath: "WebFolder_16x.svg",
-			folderNames: [
-				"wwwroot"
-			]
+			folderNames: ["wwwroot"]
 		},
 		{
 			iconPath: "WebFolderOpen_16x.svg",
-			folderNamesExpanded: [
-				"wwwroot"
-			]
+			folderNamesExpanded: ["wwwroot"]
 		},
 		{
 			iconPath: "WebService_16x.svg",
-			fileExtensions: [
-				"asmx"
-			],
+			fileExtensions: ["asmx"],
 			fileNames: []
 		},
 		{
 			iconPath: "WebURL_16x.svg",
-			fileExtensions: [
-				"url"
-			],
+			fileExtensions: ["url"],
 			fileNames: []
 		},
 		{
 			iconPath: "WebUserControl_16x.svg",
-			fileExtensions: [
-				"ascx"
-			],
+			fileExtensions: ["ascx"],
 			fileNames: []
 		},
 		{
 			iconPath: "XMLFile_16x.svg",
-			fileExtensions: [
-				"xml",
-				"dtd",
-				"iml",
-				"vsixmanifest",
-				"xquery"
-			],
+			fileExtensions: ["xml", "dtd", "iml", "vsixmanifest", "xquery"],
 			fileNames: []
 		},
 		{
 			iconPath: "XMLSchema_16x.svg",
-			fileExtensions: [
-				"xsd"
-			],
+			fileExtensions: ["xsd"],
 			fileNames: []
 		},
 		{
 			iconPath: "XSLTTransformFile_16x.svg",
-			fileExtensions: [
-				"xsl"
-			],
+			fileExtensions: ["xsl"],
 			fileNames: []
 		},
 		{
 			iconPath: "ZipFile_16x.svg",
-			fileExtensions: [
-				"zip",
-				"tar",
-				"gz",
-				"xz",
-				"bzip2",
-				"7z",
-				"rar",
-				"tgz"
-			],
+			fileExtensions: ["zip", "tar", "gz", "xz", "bzip2", "7z", "rar", "tgz"],
 			fileNames: [],
 			folderNames: [],
 			languageIds: []
 		}
 	]
-}
+};
