@@ -526,7 +526,7 @@ export default {
 		},
 		{
 			iconPath: "Parameter_16x.svg",
-			fileExtensions: ["cshtml"],
+			fileExtensions: ["cshtml", "razor"],
 			fileNames: []
 		},
 		{
