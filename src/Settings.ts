@@ -228,7 +228,7 @@ export default {
 		},
 		{
 			iconPath: "CS_16x.svg",
-			fileExtensions: ["cs"],
+			fileExtensions: ["cs", "csx"],
 			fileNames: []
 		},
 		{
