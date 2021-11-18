@@ -100,6 +100,15 @@
         "CPP_16x_contrast.svg": {
             "iconPath": "./images/CPP_16x_contrast.svg"
         },
+        "TextFile_16x.svg": {
+            "iconPath": "./images/TextFile_16x.svg"
+        },
+        "TextFile_16x_inverse.svg": {
+            "iconPath": "./images/TextFile_16x_inverse.svg"
+        },
+        "TextFile_16x_contrast.svg": {
+            "iconPath": "./images/TextFile_16x_contrast.svg"
+        },
         "CPPHeaderFile_16x.svg": {
             "iconPath": "./images/CPPHeaderFile_16x.svg"
         },
@@ -694,15 +703,6 @@
         "Text_16x_contrast.svg": {
             "iconPath": "./images/Text_16x_contrast.svg"
         },
-        "TextFile_16x.svg": {
-            "iconPath": "./images/TextFile_16x.svg"
-        },
-        "TextFile_16x_inverse.svg": {
-            "iconPath": "./images/TextFile_16x_inverse.svg"
-        },
-        "TextFile_16x_contrast.svg": {
-            "iconPath": "./images/TextFile_16x_contrast.svg"
-        },
         "VBApplication_16x.svg": {
             "iconPath": "./images/VBApplication_16x.svg"
         },
@@ -892,6 +892,10 @@
             "cc": "CFile_16x_color.svg",
             "cpp": "CPP_16x.svg",
             "cxx": "CPP_16x.svg",
+            "cppm": "CPP_16x.svg",
+            "ixx": "CPP_16x.svg",
+            "mxx": "CPP_16x.svg",
+            "rc": "TextFile_16x.svg",
             "h": "CPPHeaderFile_16x.svg",
             "hpp": "CPPHeaderFile_16x.svg",
             "cs": "CS_16x.svg",
@@ -912,6 +916,7 @@
             "mdb": "Database_16x.svg",
             "sqlite": "Database_16x.svg",
             "pdb": "Database_16x.svg",
+            "idb": "Database_16x.svg",
             "vsix": "Extension_16x.svg",
             "manifest": "ExtensionManagerManifest_16x.svg",
             "resx": "FileGroup_16x.svg",
@@ -1124,6 +1129,7 @@
             "CMakeLists.txt": "MakeFile_16x.svg",
             "cmakelists.txt": "MakeFile_16x.svg",
             "gnumakefile": "MakeFile_16x.svg",
+            "build.ninja": "MakeFile_16x.svg",
             "web.debug.config": "NextDocument_16x.svg",
             "web.release.config": "NextDocument_16x.svg",
             ".jshintignore": "SettingsFile_16x.svg",
@@ -1231,6 +1237,10 @@
             "cc": "CFile_16x_color_contrast.svg",
             "cpp": "CPP_16x_contrast.svg",
             "cxx": "CPP_16x_contrast.svg",
+            "cppm": "CPP_16x_contrast.svg",
+            "ixx": "CPP_16x_contrast.svg",
+            "mxx": "CPP_16x_contrast.svg",
+            "rc": "TextFile_16x_contrast.svg",
             "h": "CPPHeaderFile_16x_contrast.svg",
             "hpp": "CPPHeaderFile_16x_contrast.svg",
             "cs": "CS_16x_contrast.svg",
@@ -1251,6 +1261,7 @@
             "mdb": "Database_16x_contrast.svg",
             "sqlite": "Database_16x_contrast.svg",
             "pdb": "Database_16x_contrast.svg",
+            "idb": "Database_16x_contrast.svg",
             "vsix": "Extension_16x_contrast.svg",
             "manifest": "ExtensionManagerManifest_16x_contrast.svg",
             "resx": "FileGroup_16x_contrast.svg",
@@ -1463,6 +1474,7 @@
             "CMakeLists.txt": "MakeFile_16x_contrast.svg",
             "cmakelists.txt": "MakeFile_16x_contrast.svg",
             "gnumakefile": "MakeFile_16x_contrast.svg",
+            "build.ninja": "MakeFile_16x_contrast.svg",
             "web.debug.config": "NextDocument_16x_contrast.svg",
             "web.release.config": "NextDocument_16x_contrast.svg",
             ".jshintignore": "SettingsFile_16x_contrast.svg",
@@ -1569,6 +1581,10 @@
         "cc": "CFile_16x_color_inverse.svg",
         "cpp": "CPP_16x_inverse.svg",
         "cxx": "CPP_16x_inverse.svg",
+        "cppm": "CPP_16x_inverse.svg",
+        "ixx": "CPP_16x_inverse.svg",
+        "mxx": "CPP_16x_inverse.svg",
+        "rc": "TextFile_16x_inverse.svg",
         "h": "CPPHeaderFile_16x_inverse.svg",
         "hpp": "CPPHeaderFile_16x_inverse.svg",
         "cs": "CS_16x_inverse.svg",
@@ -1589,6 +1605,7 @@
         "mdb": "Database_16x_inverse.svg",
         "sqlite": "Database_16x_inverse.svg",
         "pdb": "Database_16x_inverse.svg",
+        "idb": "Database_16x_inverse.svg",
         "vsix": "Extension_16x_inverse.svg",
         "manifest": "ExtensionManagerManifest_16x_inverse.svg",
         "resx": "FileGroup_16x_inverse.svg",
@@ -1801,6 +1818,7 @@
         "CMakeLists.txt": "MakeFile_16x_inverse.svg",
         "cmakelists.txt": "MakeFile_16x_inverse.svg",
         "gnumakefile": "MakeFile_16x_inverse.svg",
+        "build.ninja": "MakeFile_16x_inverse.svg",
         "web.debug.config": "NextDocument_16x_inverse.svg",
         "web.release.config": "NextDocument_16x_inverse.svg",
         ".jshintignore": "SettingsFile_16x_inverse.svg",

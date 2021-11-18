@@ -218,7 +218,12 @@ export default {
 		},
 		{
 			iconPath: "CPP_16x.svg",
-			fileExtensions: ["cpp", "inl", "cxx"],
+			fileExtensions: ["cpp", "inl", "cxx", "cppm", "ixx", "mxx"],
+			fileNames: []
+		},
+		{
+			iconPath: "TextFile_16x.svg",
+			fileExtensions: ["rc"],
 			fileNames: []
 		},
 		{
@@ -266,7 +271,7 @@ export default {
 		},
 		{
 			iconPath: "Database_16x.svg",
-			fileExtensions: ["sql", "mdb", "sqlite", "pdb"],
+			fileExtensions: ["sql", "mdb", "sqlite", "pdb", "idb"],
 			fileNames: []
 		},
 		{
@@ -448,7 +453,7 @@ export default {
 		{
 			iconPath: "MakeFile_16x.svg",
 			fileExtensions: ["cmake", "make", "mk", "nmake"],
-			fileNames: ["CMakeLists.txt", "cmakelists.txt", "gnumakefile", "mak", "make", "makefile"]
+			fileNames: ["CMakeLists.txt", "cmakelists.txt", "gnumakefile", "mak", "make", "makefile", "build.ninja"]
 		},
 		{
 			iconPath: "MasterPage_16x.svg",
