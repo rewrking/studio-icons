@@ -218,7 +218,7 @@ export default {
 		},
 		{
 			iconPath: "CPP_16x.svg",
-			fileExtensions: ["cpp", "inl", "cxx", "cppm", "ixx", "mxx"],
+			fileExtensions: ["cpp", "inl", "cxx", "cppm", "cpm", "mxx"],
 			fileNames: []
 		},
 		{
@@ -228,7 +228,7 @@ export default {
 		},
 		{
 			iconPath: "CPPHeaderFile_16x.svg",
-			fileExtensions: ["h", "hpp"],
+			fileExtensions: ["h", "hpp", "ixx"],
 			fileNames: []
 		},
 		{
