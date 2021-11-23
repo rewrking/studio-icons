@@ -218,7 +218,7 @@ export default {
 		},
 		{
 			iconPath: "CPP_16x.svg",
-			fileExtensions: ["cpp", "inl", "cxx", "cppm", "cpm", "mxx"],
+			fileExtensions: ["cpp", "inl", "cxx", "cppm", "cpm", "mxx", "ccm"],
 			fileNames: []
 		},
 		{
