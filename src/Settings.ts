@@ -213,12 +213,12 @@ export default {
 		},
 		{
 			iconPath: "CFile_16x_color.svg",
-			fileExtensions: ["c", "cc"],
+			fileExtensions: ["c"],
 			fileNames: []
 		},
 		{
 			iconPath: "CPP_16x.svg",
-			fileExtensions: ["cpp", "inl", "cxx", "cppm", "cpm", "mxx", "ccm"],
+			fileExtensions: ["cpp", "cc", "inl", "cxx", "cppm", "cpm", "mxx", "ccm"],
 			fileNames: []
 		},
 		{
