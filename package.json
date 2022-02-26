@@ -29,13 +29,13 @@
         "icon-theme",
         "customization"
     ],
-    "homepage": "https://github.com/andrew-r-king/studio-icons/blob/master/README.md",
+    "homepage": "https://github.com/rewrking/studio-icons/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/andrew-r-king/studio-icons.git"
+        "url": "https://github.com/rewrking/studio-icons.git"
     },
     "bugs": {
-        "url": "https://github.com/andrew-r-king/studio-icons/issues"
+        "url": "https://github.com/rewrking/studio-icons/issues"
     },
     "icon": "images/logo.png",
     "galleryBanner": {
