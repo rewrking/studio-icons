@@ -547,9 +547,9 @@ export default {
 		{
 			iconPath: "Property_16x.svg",
 			fileExtensions: ["properties", "prop", "props"],
-			fileNames: [],
-			folderNames: ["properties"],
-			folderNamesExpanded: ["properties"]
+			fileNames: []
+			// folderNames: ["properties"],
+			// folderNamesExpanded: ["properties"]
 		},
 		{
 			iconPath: "PugScript_16x.svg",
@@ -564,9 +564,9 @@ export default {
 		{
 			iconPath: "Reference_16x.svg",
 			fileExtensions: [],
-			fileNames: [],
-			folderNames: ["references"],
-			folderNamesExpanded: ["references"]
+			fileNames: []
+			// folderNames: ["references"],
+			// folderNamesExpanded: ["references"]
 		},
 		{
 			iconPath: "RB_FileSENode_16x.svg",

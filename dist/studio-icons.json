@@ -1141,14 +1141,12 @@
             "tslint.json": "TS_FileSENode_16x.svg"
         },
         "folderNames": {
-            "properties": "Property_16x.svg",
-            "references": "Reference_16x.svg",
+            "properties": "FOR_TEST_ONLY",
+            "references": "FOR_TEST_ONLY",
             "rootFolder": "SpecialFolder_16x.svg",
             "wwwroot": "WebFolder_16x.svg"
         },
         "folderNamesExpanded": {
-            "properties": "Property_16x.svg",
-            "references": "Reference_16x.svg",
             "rootFolder": "SpecialFolderOpen_16x.svg",
             "wwwroot": "WebFolderOpen_16x.svg"
         },
@@ -1488,14 +1486,12 @@
             "tslint.json": "TS_FileSENode_16x_contrast.svg"
         },
         "folderNames": {
-            "properties": "Property_16x_contrast.svg",
-            "references": "Reference_16x_contrast.svg",
+            "properties": "FOR_TEST_ONLY",
+            "references": "FOR_TEST_ONLY",
             "rootFolder": "SpecialFolder_16x_contrast.svg",
             "wwwroot": "WebFolder_16x_contrast.svg"
         },
         "folderNamesExpanded": {
-            "properties": "Property_16x_contrast.svg",
-            "references": "Reference_16x_contrast.svg",
             "rootFolder": "SpecialFolderOpen_16x_contrast.svg",
             "wwwroot": "WebFolderOpen_16x_contrast.svg"
         },
@@ -1834,14 +1830,12 @@
         "tslint.json": "TS_FileSENode_16x_inverse.svg"
     },
     "folderNames": {
-        "properties": "Property_16x_inverse.svg",
-        "references": "Reference_16x_inverse.svg",
+        "properties": "FOR_TEST_ONLY",
+        "references": "FOR_TEST_ONLY",
         "rootFolder": "SpecialFolder_16x_inverse.svg",
         "wwwroot": "WebFolder_16x_inverse.svg"
     },
     "folderNamesExpanded": {
-        "properties": "Property_16x_inverse.svg",
-        "references": "Reference_16x_inverse.svg",
         "rootFolder": "SpecialFolderOpen_16x_inverse.svg",
         "wwwroot": "WebFolderOpen_16x_inverse.svg"
     },
