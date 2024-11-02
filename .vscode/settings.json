@@ -2,9 +2,13 @@
     "editor.formatOnSave": true,
     "search.exclude": {
         "fileicons/**": true,
-        "test/**": true
+        "test/**": true,
+        "dist/**": true
     },
     "files.exclude": {
         "**/*.ai": true
     },
+    "[svg]": {
+        "editor.formatOnSave": false
+    }
 }

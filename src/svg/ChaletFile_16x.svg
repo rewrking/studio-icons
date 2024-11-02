@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<g id="outline">
+	<path style="fill:#F6F6F6;"
+		d="M8,0c-1,0-2,1-2,1L1,9s-1,1.05-1,2c0,.64,.54,1,1,1,.15,.15,5,3,5,3,0,0,1.42,1,2,1,.61,0,2-1,2-1,0,0,4.99-3,5-3,.41,0,1-.36,1-1,0-.97-1.03-2-1-2L10,1s-1-1-2-1Z" />
+</g>
+<g id="iconFg2">
+	<path style="fill:#f3931f;"
+		d="M8,7c-.65,0-3.15,1.93-5,4-.93,.69-2,0-2,0C1,11,7.34,1,8,1s7,10,7,10c0,0-.98,.72-2,0-1.85-2.07-4.35-4-5-4Z" />
+</g>
+<g id="iconFg1">
+	<path style="fill:#ba5127;"
+		d="M13,12s-4.53-2-5-2c-.41,0-5.02,2.04-5,2,.02,.02-2-1-2-1,0,0,6-5,7-5s7,5,7,5c0,0-2.02,.99-2,1Z" />
+</g>
+<g id="iconBg">
+	<path style="fill:#F0EFF1;" d="M8,10c-.53,0-5,2-5,2,0,0,4.7,3,5,3,.31,0,5-3,5-3,0,0-4.47-2-5-2Z" />
+</g>
+</svg>

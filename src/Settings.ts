@@ -167,7 +167,7 @@ export default {
 				"releases",
 				"yarn.lock"
 			],
-			folderNames: ["properties", "references", "rootFolder", "wwwroot"]
+			folderNames: ["properties", "references", "rootFolder", "wwwroot", "public"]
 		},
 		{
 			iconPath: "AdobeIndesign_16x.svg",
@@ -228,7 +228,7 @@ export default {
 		},
 		{
 			iconPath: "CPPHeaderFile_16x.svg",
-			fileExtensions: ["h", "hpp", "ixx"],
+			fileExtensions: ["h", "hpp", "i", "ixx"],
 			fileNames: []
 		},
 		{
@@ -240,6 +240,20 @@ export default {
 			iconPath: "Certificate_16x.svg",
 			fileExtensions: ["cert", "cer", "crt"],
 			fileNames: ["license", "license.md", "license.md.rendered", "license.txt"]
+		},
+		{
+			iconPath: "ChaletFile_16x.svg",
+			fileExtensions: [],
+			fileNames: ["chalet.json"]
+		},
+		{
+			iconPath: "ChaletSettingsFile_16x.svg",
+			fileExtensions: ["chaletrc", "chaletext"]
+		},
+		{
+			iconPath: "ChaletMakeFile_16x.svg",
+			fileExtensions: [],
+			fileNames: ["build.chalet"]
 		},
 		{
 			iconPath: "ConfigurationFile_16x.svg",
@@ -589,8 +603,17 @@ export default {
 		},
 		{
 			iconPath: "SettingsFile_16x.svg",
-			fileExtensions: ["asax", "ini", "dlc", "dll", "toml"],
-			fileNames: [".jshintignore", "procfile", ".buildignore"]
+			fileExtensions: ["asax", "ini", "dlc", "dll", "toml", "env", "cfg"],
+			fileNames: [
+				".jshintignore",
+				"procfile",
+				".buildignore",
+				".env.production",
+				".env.development",
+				".env.linux",
+				".env.windows",
+				".env.macos"
+			]
 		},
 		{
 			iconPath: "SitemapFile_16x.svg",
@@ -621,7 +644,7 @@ export default {
 		},
 		{
 			iconPath: "Text_16x.svg",
-			fileExtensions: ["txt", "rtf"],
+			fileExtensions: ["txt", "rtf", "log"],
 			fileNames: []
 		},
 		{
@@ -645,11 +668,11 @@ export default {
 		},
 		{
 			iconPath: "WebFolder_16x.svg",
-			folderNames: ["wwwroot"]
+			folderNames: ["wwwroot", "public", "chalet_external"]
 		},
 		{
 			iconPath: "WebFolderOpen_16x.svg",
-			folderNamesExpanded: ["wwwroot"]
+			folderNamesExpanded: ["wwwroot", "public", "chalet_external"]
 		},
 		{
 			iconPath: "WebService_16x.svg",
