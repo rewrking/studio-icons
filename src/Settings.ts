@@ -244,7 +244,7 @@ export default {
 		{
 			iconPath: "ChaletFile_16x.svg",
 			fileExtensions: [],
-			fileNames: ["chalet.json"]
+			fileNames: ["chalet.json", "chalet.yaml"]
 		},
 		{
 			iconPath: "ChaletSettingsFile_16x.svg",
