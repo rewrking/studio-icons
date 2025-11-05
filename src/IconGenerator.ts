@@ -1,19 +1,51 @@
 import fs from "fs";
+import fsp from "fs/promises";
 import settings from "./Settings";
+
+type ZedIconThemeFileThemeDirectory = {
+	collapsed: string;
+	expanded: string;
+};
+
+type ZedIconThemeFileThemeFileIcon = {
+	path: string;
+};
+
+type ZedIconThemeFileTheme = {
+	name: string;
+	appearance: "dark" | "light";
+	directory_icons: ZedIconThemeFileThemeDirectory;
+	named_directory_icons: Record<string, ZedIconThemeFileThemeDirectory>;
+	chevron_icons: Record<string, string>;
+	file_stems: Record<string, string>;
+	file_suffixes: Record<string, string>;
+	file_icons: Record<string, ZedIconThemeFileThemeFileIcon>;
+};
+
+type ZedIconThemeFile = {
+	$schema: "https://zed.dev/schema/icon_themes/v0.3.0.json";
+	name: string;
+	author: string;
+	themes: ZedIconThemeFileTheme[];
+};
 
 export class IconGenerator {
 	iconDefinitions = {};
-	paths: any = {
+	paths = {
 		iconSrcPath: "./src/svg/",
 		iconDestPath: "./dist/images/",
 		configDestPath: "./dist/studio-icons.json",
 		testExtensionsDestPath: "./test/extensions/",
 		testFileNamesDestPath: "./test/filenames/",
-		testFolderNamesDestPath: "./test/foldernames/",
-		testLangIdsDestPath: "./test/languageIds/"
+		// testFolderNamesDestPath: "./test/foldernames/",
+		// testLangIdsDestPath: "./test/languageIds/",
+		//
+		zedIconDestPath: "./zed/icons/",
+		zedIconThemesPath: "./zed/icon_themes/",
+		zedConfigDestPath: "./zed/icon_themes/studio-icons-mod.json"
 	};
 
-	init() {
+	async init() {
 		const icons = settings.iconDefinitions;
 		const iconCount = icons.length;
 
@@ -23,7 +55,7 @@ export class IconGenerator {
 			let icon = icons[i];
 
 			if (icon.iconPath !== "FOR_TEST_ONLY") {
-				this.createIcon(icon.iconPath);
+				await this.createIcon(icon.iconPath);
 				this.createTestFiles(icon);
 				this.createIconDefinition(icon);
 			} else {
@@ -31,9 +63,8 @@ export class IconGenerator {
 			}
 		}
 
-		this.createConfigFile();
-
-		return this;
+		await this.createConfigFile();
+		await this.createZedFiles();
 	}
 
 	makeDirectory(dir: string) {
@@ -46,10 +77,14 @@ export class IconGenerator {
 		this.clearFolder(this.paths.iconDestPath);
 		this.makeDirectory("./dist");
 		this.makeDirectory("./dist/images");
-		return this;
+
+		this.makeDirectory(this.paths.zedIconThemesPath);
+		this.makeDirectory(this.paths.zedIconDestPath);
+		this.clearFolder(this.paths.zedIconThemesPath);
+		this.clearFolder(this.paths.zedIconDestPath);
 	}
 
-	createConfigFile() {
+	async createConfigFile() {
 		let configs = {
 			hidesExplorerArrows: true,
 			iconDefinitions: this.iconDefinitions,
@@ -59,13 +94,96 @@ export class IconGenerator {
 
 		Object.assign(configs, this.createThemeMapping("dark"));
 
-		fs.writeFile(this.paths.configDestPath, JSON.stringify(configs, null, 4), function(err) {
-			if (err) {
-				return console.log(err);
-			}
-		});
+		await fsp.writeFile(this.paths.configDestPath, JSON.stringify(configs, null, 4));
+	}
 
-		return this;
+	async createZedFiles() {
+		const makeTheme = (name: string, appearance: ZedIconThemeFileTheme["appearance"]) => {
+			const theme = settings[appearance];
+			const resolveIconPath = (file: string) => `./icons/${file}`;
+			const fileIcon = (path: string): ZedIconThemeFileThemeFileIcon => ({ path: resolveIconPath(path) });
+			const iconsDefs = settings.iconDefinitions;
+			const result: ZedIconThemeFileTheme = {
+				name: `Studio Icons (${name})`,
+				appearance,
+				directory_icons: {
+					collapsed: resolveIconPath(theme.folder),
+					expanded: resolveIconPath(theme.folderExpanded)
+				},
+				named_directory_icons: {},
+				chevron_icons: {},
+				file_stems: {},
+				file_suffixes: {},
+				file_icons: {}
+			};
+
+			const suffix = appearance === "dark" ? "_inverse" : "";
+			for (const def of iconsDefs) {
+				if (def.iconPath && def.iconPath !== "FOR_TEST_ONLY") {
+					const stem = def.iconPath.replace(/\.svg/g, "");
+					const iconPath = `${stem}${suffix}.svg`;
+
+					if (def.fileNames) {
+						for (const filename of def.fileNames) {
+							result.file_stems[filename] = stem;
+							result.file_icons[stem] = fileIcon(iconPath);
+						}
+					}
+					if (def.fileExtensions) {
+						for (const ext of def.fileExtensions) {
+							result.file_suffixes[ext] = stem;
+							result.file_icons[stem] = fileIcon(iconPath);
+						}
+					}
+					if (def.folderNames) {
+						for (const folder of def.folderNames) {
+							if (!result.named_directory_icons[folder]) {
+								result.named_directory_icons[folder] = {
+									collapsed: resolveIconPath(iconPath),
+									expanded: ""
+								};
+							} else {
+								result.named_directory_icons[folder].collapsed = resolveIconPath(iconPath);
+							}
+						}
+					}
+					if (def.folderNamesExpanded) {
+						for (const folder of def.folderNamesExpanded) {
+							if (!result.named_directory_icons[folder]) {
+								result.named_directory_icons[folder] = {
+									collapsed: "",
+									expanded: resolveIconPath(iconPath)
+								};
+							} else {
+								result.named_directory_icons[folder].expanded = resolveIconPath(iconPath);
+							}
+						}
+					}
+				}
+			}
+
+			result.file_icons["default"] = fileIcon(theme.file);
+
+			return result;
+		};
+
+		let configs: ZedIconThemeFile = {
+			$schema: "https://zed.dev/schema/icon_themes/v0.3.0.json",
+			name: "Studio Icons",
+			author: "Andrew King",
+			themes: [makeTheme("Dark", "dark"), makeTheme("Light", "light")]
+		};
+
+		await this.copyIconsToZedDest(configs.themes);
+
+		await fsp.writeFile(this.paths.zedConfigDestPath, JSON.stringify(configs, null, 4));
+	}
+
+	async copyIconsToZedDest(_themes: ZedIconThemeFileTheme[]) {
+		const files = await fsp.readdir(this.paths.iconDestPath);
+		for (const file of files) {
+			await fsp.copyFile(`${this.paths.iconDestPath}${file}`, `${this.paths.zedIconDestPath}${file}`);
+		}
 	}
 
 	replaceColors(data, colorSettings) {
@@ -85,137 +203,128 @@ export class IconGenerator {
 		return contents;
 	}
 
-	createIcon(iconPath) {
-		let colors = settings.colors;
-		let srcPath = this.paths.iconSrcPath + iconPath;
-		let file = fs.createReadStream(srcPath, "utf8");
-		let lightFile = "";
-		let darkFile = "";
-		let contrastFile = "";
-		let lightFilePath = this.paths.iconDestPath + iconPath;
-		let darkFilePath = lightFilePath.replace(".svg", "_inverse.svg");
-		let contrastFilePath = lightFilePath.replace(".svg", "_contrast.svg");
+	async createIcon(iconPath: string) {
+		return new Promise<void>((resolve, reject) => {
+			let colors = settings.colors;
+			let srcPath = this.paths.iconSrcPath + iconPath;
+			let file = fs.createReadStream(srcPath, "utf8");
+			let lightFile = "";
+			let darkFile = "";
+			let contrastFile = "";
+			let lightFilePath = this.paths.iconDestPath + iconPath;
+			let darkFilePath = lightFilePath.replace(".svg", "_inverse.svg");
+			let contrastFilePath = lightFilePath.replace(".svg", "_contrast.svg");
 
-		file.on("data", function(chunk) {
-			lightFile = chunk
-				.toString()
-				.split(colors.background)
-				.join(settings.light.colors.background)
-				.split(colors.foreground)
-				.join(settings.light.colors.foreground);
+			file.on("data", (chunk) => {
+				lightFile = chunk
+					.toString()
+					.split(colors.background)
+					.join(settings.light.colors.background)
+					.split(colors.foreground)
+					.join(settings.light.colors.foreground);
 
-			darkFile = chunk
-				.toString()
-				.split(colors.white)
-				.join(settings.dark.colors.foreground)
-				.split(colors.background)
-				.join(settings.dark.colors.background)
-				.split(colors.foreground)
-				.join(settings.dark.colors.foreground)
-				.split(colors.outline)
-				.join(settings.dark.colors.foreground)
-				.split(colors.aspBlue)
-				.join(settings.dark.colors.aspBlue)
-				.split(colors.cppPurple)
-				.join(settings.dark.colors.cppPurple)
-				.split(colors.csGreen)
-				.join(settings.dark.colors.csGreen)
-				.split(colors.fsPurple)
-				.join(settings.dark.colors.fsPurple)
-				.split(colors.vbBlue)
-				.join(settings.dark.colors.vbBlue)
-				.split(colors.tsOrange)
-				.join(settings.dark.colors.tsOrange)
-				.split(colors.pyGreen)
-				.join(settings.dark.colors.pyGreen)
-				.split(colors.vsPurple)
-				.join(settings.dark.colors.vsPurple)
-				.split(colors.accessRed)
-				.join(settings.dark.colors.accessRed)
-				.split(colors.wordBlue)
-				.join(settings.dark.colors.wordBlue)
-				.split(colors.pptRed)
-				.join(settings.dark.colors.pptRed)
-				.split(colors.projGreen)
-				.join(settings.dark.colors.projGreen)
-				.split(colors.visioPurple)
-				.join(settings.dark.colors.visioPurple)
-				.split(colors.excelGreen)
-				.join(settings.dark.colors.excelGreen);
+				darkFile = chunk
+					.toString()
+					.split(colors.white)
+					.join(settings.dark.colors.foreground)
+					.split(colors.background)
+					.join(settings.dark.colors.background)
+					.split(colors.foreground)
+					.join(settings.dark.colors.foreground)
+					.split(colors.outline)
+					.join(settings.dark.colors.foreground)
+					.split(colors.aspBlue)
+					.join(settings.dark.colors.aspBlue)
+					.split(colors.cppPurple)
+					.join(settings.dark.colors.cppPurple)
+					.split(colors.csGreen)
+					.join(settings.dark.colors.csGreen)
+					.split(colors.fsPurple)
+					.join(settings.dark.colors.fsPurple)
+					.split(colors.vbBlue)
+					.join(settings.dark.colors.vbBlue)
+					.split(colors.tsOrange)
+					.join(settings.dark.colors.tsOrange)
+					.split(colors.pyGreen)
+					.join(settings.dark.colors.pyGreen)
+					.split(colors.vsPurple)
+					.join(settings.dark.colors.vsPurple)
+					.split(colors.accessRed)
+					.join(settings.dark.colors.accessRed)
+					.split(colors.wordBlue)
+					.join(settings.dark.colors.wordBlue)
+					.split(colors.pptRed)
+					.join(settings.dark.colors.pptRed)
+					.split(colors.projGreen)
+					.join(settings.dark.colors.projGreen)
+					.split(colors.visioPurple)
+					.join(settings.dark.colors.visioPurple)
+					.split(colors.excelGreen)
+					.join(settings.dark.colors.excelGreen);
 
-			contrastFile = chunk
-				.toString()
-				.split(colors.white)
-				.join(settings.contrast.colors.foreground)
-				.split(colors.background)
-				.join(settings.contrast.colors.background)
-				.split(colors.foreground)
-				.join(settings.contrast.colors.foreground)
-				.split(colors.outline)
-				.join(settings.contrast.colors.outline)
-				.split(colors.folderTan)
-				.join(settings.contrast.colors.background)
-				.split(colors.androidGreen)
-				.join(settings.contrast.colors.background)
-				.split(colors.aspBlue)
-				.join(settings.contrast.colors.background)
-				.split(colors.cppPurple)
-				.join(settings.contrast.colors.background)
-				.split(colors.csGreen)
-				.join(settings.contrast.colors.background)
-				.split(colors.cssRed)
-				.join(settings.contrast.colors.background)
-				.split(colors.fsPurple)
-				.join(settings.contrast.colors.background)
-				.split(colors.jsOrange)
-				.join(settings.contrast.colors.background)
-				.split(colors.vbBlue)
-				.join(settings.contrast.colors.background)
-				.split(colors.tsOrange)
-				.join(settings.contrast.colors.background)
-				.split(colors.gitOrange)
-				.join(settings.contrast.colors.background)
-				.split(colors.pyGreen)
-				.join(settings.contrast.colors.background)
-				.split(colors.vsPurple)
-				.join(settings.contrast.colors.background)
-				.split(colors.sassPurple)
-				.join(settings.contrast.colors.background)
-				.split(colors.accessRed)
-				.join(settings.contrast.colors.background)
-				.split(colors.wordBlue)
-				.join(settings.contrast.colors.background)
-				.split(colors.pptRed)
-				.join(settings.contrast.colors.background)
-				.split(colors.projGreen)
-				.join(settings.contrast.colors.background)
-				.split(colors.visioPurple)
-				.join(settings.contrast.colors.background)
-				.split(colors.excelGreen)
-				.join(settings.contrast.colors.background);
-		});
-
-		file.on("end", function() {
-			fs.writeFile(lightFilePath, lightFile, function(err) {
-				if (err) {
-					return console.log(err);
-				}
+				contrastFile = chunk
+					.toString()
+					.split(colors.white)
+					.join(settings.contrast.colors.foreground)
+					.split(colors.background)
+					.join(settings.contrast.colors.background)
+					.split(colors.foreground)
+					.join(settings.contrast.colors.foreground)
+					.split(colors.outline)
+					.join(settings.contrast.colors.outline)
+					.split(colors.folderTan)
+					.join(settings.contrast.colors.background)
+					.split(colors.androidGreen)
+					.join(settings.contrast.colors.background)
+					.split(colors.aspBlue)
+					.join(settings.contrast.colors.background)
+					.split(colors.cppPurple)
+					.join(settings.contrast.colors.background)
+					.split(colors.csGreen)
+					.join(settings.contrast.colors.background)
+					.split(colors.cssRed)
+					.join(settings.contrast.colors.background)
+					.split(colors.fsPurple)
+					.join(settings.contrast.colors.background)
+					.split(colors.jsOrange)
+					.join(settings.contrast.colors.background)
+					.split(colors.vbBlue)
+					.join(settings.contrast.colors.background)
+					.split(colors.tsOrange)
+					.join(settings.contrast.colors.background)
+					.split(colors.gitOrange)
+					.join(settings.contrast.colors.background)
+					.split(colors.pyGreen)
+					.join(settings.contrast.colors.background)
+					.split(colors.vsPurple)
+					.join(settings.contrast.colors.background)
+					.split(colors.sassPurple)
+					.join(settings.contrast.colors.background)
+					.split(colors.accessRed)
+					.join(settings.contrast.colors.background)
+					.split(colors.wordBlue)
+					.join(settings.contrast.colors.background)
+					.split(colors.pptRed)
+					.join(settings.contrast.colors.background)
+					.split(colors.projGreen)
+					.join(settings.contrast.colors.background)
+					.split(colors.visioPurple)
+					.join(settings.contrast.colors.background)
+					.split(colors.excelGreen)
+					.join(settings.contrast.colors.background);
 			});
 
-			fs.writeFile(darkFilePath, darkFile, function(err) {
-				if (err) {
-					return console.log(err);
-				}
-			});
-
-			fs.writeFile(contrastFilePath, contrastFile, function(err) {
-				if (err) {
-					return console.log(err);
+			file.on("end", () => {
+				try {
+					fs.writeFileSync(lightFilePath, lightFile);
+					fs.writeFileSync(darkFilePath, darkFile);
+					fs.writeFileSync(contrastFilePath, contrastFile);
+					resolve();
+				} catch (err) {
+					reject(err);
 				}
 			});
 		});
-
-		return this;
 	}
 
 	createIconDefinition(icon) {
@@ -234,8 +343,6 @@ export class IconGenerator {
 		this.iconDefinitions[contrastPathName] = {
 			iconPath: path + contrastPathName
 		};
-
-		return this;
 	}
 
 	createThemeMapping(type) {
@@ -244,8 +351,8 @@ export class IconGenerator {
 			fileExtensions: {},
 			fileNames: {},
 			folderNames: {},
-			folderNamesExpanded: {},
-			languageIds: {}
+			folderNamesExpanded: {}
+			// languageIds: {}
 		};
 
 		if (type == "light") {
@@ -339,83 +446,52 @@ export class IconGenerator {
 		//     }
 		// }
 
-		if (icon.languageIds != void 0) {
-			let length = icon.languageIds.length;
-			for (let i = 0; i < length; i++) {
-				let languageId = icon.languageIds[i];
-				let filePath = this.paths.testlanguageIdsDestPath + languageId;
-				this.createTestFile(filePath);
-			}
-		}
-
-		return this;
+		// if (icon.languageIds != void 0) {
+		// 	let length = icon.languageIds.length;
+		// 	for (let i = 0; i < length; i++) {
+		// 		let languageId = icon.languageIds[i];
+		// 		let filePath = this.paths.testlanguageIdsDestPath + languageId;
+		// 		this.createTestFile(filePath);
+		// 	}
+		// }
 	}
 
-	createTestFile(filePath) {
-		fs.writeFile(filePath, "", function(err) {
-			if (err) return console.log(err);
-		});
-
-		return this;
+	createTestFile(filePath: string) {
+		fs.writeFileSync(filePath, "");
 	}
 
-	createTestFolder(folderPath) {
+	createTestFolder(folderPath: string) {
 		if (!fs.existsSync(folderPath)) {
 			fs.mkdirSync(folderPath);
 		}
-		return this;
 	}
 
-	clearFolder(folderPath: string, removeSelf?: boolean) {
+	async clearFolder(folderPath: string, removeSelf?: boolean) {
 		if (removeSelf === undefined) {
 			removeSelf = false;
 		}
 
-		try {
-			let files = fs.readdirSync(folderPath);
-			if (files.length > 0) {
-				for (let i = 0; i < files.length; i++) {
-					let filePath = folderPath + files[i];
-					this.removeFile(filePath);
-				}
+		let files = await fsp.readdir(folderPath);
+		if (files.length > 0) {
+			for (let i = 0; i < files.length; i++) {
+				let filePath = folderPath + files[i];
+				this.removeFile(filePath);
 			}
-		} catch (e) {
-			return;
 		}
 
 		if (removeSelf) {
-			fs.rmdirSync(folderPath);
+			await fsp.rmdir(folderPath);
 		}
-
-		return this;
 	}
 
-	removeFile(filePath: string) {
-		if (this.fileExistsSync(filePath)) {
-			fs.stat(filePath, function(err, fileStat) {
-				if (err) {
-					if (err.code == "ENOENT") {
-						console.log("Does not exist.");
-					}
-				} else {
-					if (fileStat.isFile()) {
-						fs.unlinkSync(filePath);
-					} else if (fileStat.isDirectory()) {
-						fs.rmdirSync(`file://${filePath}`);
-					}
-				}
-			});
-		}
-
-		return this;
-	}
-
-	fileExistsSync(filePath: string) {
-		try {
-			fs.accessSync(filePath);
-			return true;
-		} catch (e) {
-			return false;
+	async removeFile(filePath: string) {
+		if (fs.existsSync(filePath)) {
+			const fileStat = fs.statSync(filePath);
+			if (fileStat.isFile()) {
+				fs.unlinkSync(filePath);
+			} else if (fileStat.isDirectory()) {
+				await fsp.rmdir(`file://${filePath}`);
+			}
 		}
 	}
 }

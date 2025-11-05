@@ -1,0 +1,7 @@
+id = "studio-icons-mod"
+name = "Studio Icons"
+version = "9.0.0"
+schema_version = 1
+authors = ["Andrew King"]
+description = "Featuring official icons from the Visual Studio Image Library. Optimized to work well for dark, light, and high contrast themes."
+repository = "https://github.com/rewrking/studio-icons"

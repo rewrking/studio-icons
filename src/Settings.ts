@@ -248,7 +248,8 @@ export default {
 		},
 		{
 			iconPath: "ChaletSettingsFile_16x.svg",
-			fileExtensions: ["chaletrc", "chaletext"]
+			fileExtensions: [],
+			fileNames: [".chaletrc", ".chaletext"]
 		},
 		{
 			iconPath: "ChaletMakeFile_16x.svg",
@@ -708,8 +709,7 @@ export default {
 			iconPath: "ZipFile_16x.svg",
 			fileExtensions: ["zip", "tar", "gz", "xz", "bzip2", "7z", "rar", "tgz"],
 			fileNames: [],
-			folderNames: [],
-			languageIds: []
+			folderNames: []
 		}
 	]
 };
