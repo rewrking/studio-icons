@@ -239,7 +239,7 @@ export default {
 		{
 			iconPath: "Certificate_16x.svg",
 			fileExtensions: ["cert", "cer", "crt"],
-			fileNames: ["license", "license.md", "license.md.rendered", "license.txt"]
+			fileNames: ["license", "license.md", "license.md.rendered", "license.txt", "LICENSE"]
 		},
 		{
 			iconPath: "ChaletFile_16x.svg",
