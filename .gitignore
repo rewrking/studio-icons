@@ -16,3 +16,5 @@ undefinedreferences
 .vs
 dist/
 zed/icons/
+pnpm-lock.yaml
+pnpm-workspace.yaml
